@@ -11,45 +11,49 @@ namespace TrustPayments.Service
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICurrencyService : IApiAccessor
+    public interface ITransactionLightboxService : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// All
+        /// Build JavaScript URL
         /// </summary>
         /// <remarks>
-        /// This operation returns all currencies.
+        /// This operation creates the URL which can be used to embed the JavaScript for handling the Lightbox checkout flow.
         /// </remarks>
         /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;RestCurrency&gt;</returns>
-        List<RestCurrency> All ();
+        /// <param name="spaceId"></param>
+        /// <param name="id">The id of the transaction which should be returned.</param>
+        /// <returns>string</returns>
+        string JavascriptUrl (long? spaceId, long? id);
 
         /// <summary>
-        /// All
+        /// Build JavaScript URL
         /// </summary>
         /// <remarks>
-        /// This operation returns all currencies.
+        /// This operation creates the URL which can be used to embed the JavaScript for handling the Lightbox checkout flow.
         /// </remarks>
         /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;RestCurrency&gt;</returns>
-        ApiResponse<List<RestCurrency>> AllWithHttpInfo ();
+        /// <param name="spaceId"></param>
+        /// <param name="id">The id of the transaction which should be returned.</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> JavascriptUrlWithHttpInfo (long? spaceId, long? id);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class CurrencyService : ICurrencyService
+    public partial class TransactionLightboxService : ITransactionLightboxService
     {
         private TrustPayments.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrencyService"/> class
+        /// Initializes a new instance of the <see cref="TransactionLightboxService"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CurrencyService(TrustPayments.Client.Configuration configuration = null)
+        public TransactionLightboxService(TrustPayments.Client.Configuration configuration = null)
         {
             if(configuration == null){
                 throw new ArgumentException("Parameter cannot be null", "configuration");
@@ -92,25 +96,35 @@ namespace TrustPayments.Service
         }
 
         /// <summary>
-        /// All This operation returns all currencies.
+        /// Build JavaScript URL This operation creates the URL which can be used to embed the JavaScript for handling the Lightbox checkout flow.
         /// </summary>
         /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;RestCurrency&gt;</returns>
-        public List<RestCurrency> All ()
+        /// <param name="spaceId"></param>
+        /// <param name="id">The id of the transaction which should be returned.</param>
+        /// <returns>string</returns>
+        public string JavascriptUrl (long? spaceId, long? id)
         {
-             ApiResponse<List<RestCurrency>> localVarResponse = AllWithHttpInfo();
+             ApiResponse<string> localVarResponse = JavascriptUrlWithHttpInfo(spaceId, id);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// All This operation returns all currencies.
+        /// Build JavaScript URL This operation creates the URL which can be used to embed the JavaScript for handling the Lightbox checkout flow.
         /// </summary>
         /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;RestCurrency&gt;</returns>
-        public ApiResponse< List<RestCurrency> > AllWithHttpInfo ()
+        /// <param name="spaceId"></param>
+        /// <param name="id">The id of the transaction which should be returned.</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse< string > JavascriptUrlWithHttpInfo (long? spaceId, long? id)
         {
+            // verify the required parameter 'spaceId' is set
+            if (spaceId == null)
+                throw new ApiException(400, "Missing required parameter 'spaceId' when calling TransactionLightboxService->JavascriptUrl");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling TransactionLightboxService->JavascriptUrl");
 
-            var localVarPath = "/currency/all";
+            var localVarPath = "/transaction-lightbox/javascript-url";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -120,18 +134,20 @@ namespace TrustPayments.Service
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "*/*"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json;charset=utf-8"
+                "application/json",
+                "text/plain;charset=utf-8"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (spaceId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "spaceId", spaceId)); // query parameter
+            if (id != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "id", id)); // query parameter
 
 			
 			this.Configuration.ApiClient.ResetTimeout();
@@ -144,13 +160,13 @@ namespace TrustPayments.Service
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("All", localVarResponse);
+                Exception exception = ExceptionFactory("JavascriptUrl", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<RestCurrency>>(localVarStatusCode,
+            return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<RestCurrency>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<RestCurrency>)));
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
     }
 }

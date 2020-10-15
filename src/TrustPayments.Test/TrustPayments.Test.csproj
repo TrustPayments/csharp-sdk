@@ -6,8 +6,8 @@
         <AssemblyName>TrustPayments.Test</AssemblyName>
         <PackageId>TrustPayments.Test</PackageId>
         <OutputType>Library</OutputType>
-        <Authors>customweb GmbH</Authors>
-        <Company>customweb GmbH</Company>
+        <Authors>wallee AG</Authors>
+        <Company>wallee AG</Company>
         <AssemblyTitle>Trust Payments SDK for C#</AssemblyTitle>
         <Description>Trust Payments SDK for C#</Description>
         <Copyright>Apache-2.0</Copyright>

@@ -54,6 +54,20 @@ namespace TrustPayments.Model
         public bool? ActiveOrRestrictedActive { get; private set; }
 
         /// <summary>
+        /// The ID of the user who created this entity.
+        /// </summary>
+        /// <value>The ID of the user who created this entity.</value>
+        [DataMember(Name="createdBy", EmitDefaultValue=true)]
+        public long? CreatedBy { get; private set; }
+
+        /// <summary>
+        /// The date and time when this entity was created.
+        /// </summary>
+        /// <value>The date and time when this entity was created.</value>
+        [DataMember(Name="createdOn", EmitDefaultValue=true)]
+        public DateTime? CreatedOn { get; private set; }
+
+        /// <summary>
         /// The ID of a user that deleted this entity.
         /// </summary>
         /// <value>The ID of a user that deleted this entity.</value>
@@ -141,6 +155,8 @@ namespace TrustPayments.Model
             sb.Append("class Account {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  ActiveOrRestrictedActive: ").Append(ActiveOrRestrictedActive).Append("\n");
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  CreatedOn: ").Append(CreatedOn).Append("\n");
             sb.Append("  DeletedBy: ").Append(DeletedBy).Append("\n");
             sb.Append("  DeletedOn: ").Append(DeletedOn).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -164,7 +180,7 @@ namespace TrustPayments.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
         }
 
         /// <summary>
@@ -197,6 +213,16 @@ namespace TrustPayments.Model
                     this.ActiveOrRestrictedActive == input.ActiveOrRestrictedActive ||
                     (this.ActiveOrRestrictedActive != null &&
                     this.ActiveOrRestrictedActive.Equals(input.ActiveOrRestrictedActive))
+                ) && 
+                (
+                    this.CreatedBy == input.CreatedBy ||
+                    (this.CreatedBy != null &&
+                    this.CreatedBy.Equals(input.CreatedBy))
+                ) && 
+                (
+                    this.CreatedOn == input.CreatedOn ||
+                    (this.CreatedOn != null &&
+                    this.CreatedOn.Equals(input.CreatedOn))
                 ) && 
                 (
                     this.DeletedBy == input.DeletedBy ||
@@ -278,6 +304,10 @@ namespace TrustPayments.Model
                     hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.ActiveOrRestrictedActive != null)
                     hashCode = hashCode * 59 + this.ActiveOrRestrictedActive.GetHashCode();
+                if (this.CreatedBy != null)
+                    hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
+                if (this.CreatedOn != null)
+                    hashCode = hashCode * 59 + this.CreatedOn.GetHashCode();
                 if (this.DeletedBy != null)
                     hashCode = hashCode * 59 + this.DeletedBy.GetHashCode();
                 if (this.DeletedOn != null)
