@@ -100,6 +100,7 @@ namespace TrustPayments.Model
                 (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
+                    input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (

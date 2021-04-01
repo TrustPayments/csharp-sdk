@@ -165,6 +165,7 @@ namespace TrustPayments.Model
                 (
                     this.EntityStates == input.EntityStates ||
                     this.EntityStates != null &&
+                    input.EntityStates != null &&
                     this.EntityStates.SequenceEqual(input.EntityStates)
                 ) && 
                 (
