@@ -10,4 +10,4 @@ script:
     - msbuild /t:restore TrustPayments.sln
     - msbuild TrustPayments.sln /t:build /p:Configuration=Release
     - mono testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./src/TrustPayments.Test/bin/Release/net452/TrustPayments.Test.dll --inprocess
-    - nuget push ./src/TrustPayments/bin/Release/TrustPayments.3.0.0.nupkg -Source nuget.org -ApiKey $NUGET_API_KEY_WALLEE  -Verbosity detailed -SkipDuplicate
+    - nuget push ./src/TrustPayments/bin/Release/TrustPayments.3.0.1.nupkg -Source nuget.org -ApiKey $NUGET_API_KEY_WALLEE  -Verbosity detailed -SkipDuplicate
