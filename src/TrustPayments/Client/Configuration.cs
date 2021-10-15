@@ -19,7 +19,7 @@ namespace TrustPayments.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.0.6";
+        public const string Version = "3.0.7";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -90,8 +90,8 @@ namespace TrustPayments.Client
             }
             _authenticationKey =  authenticationKey;
             _applicationUserID = applicationUserID;
-            UserAgent = "TrustPayments/3.0.6/csharp";
-            BasePath = "http://192.168.1.182:8000/api";
+            UserAgent = "TrustPayments/3.0.7/csharp";
+            BasePath = "https://app-wallee.com:443";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -338,8 +338,8 @@ namespace TrustPayments.Client
             String report = "C# SDK (TrustPayments) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 3.0.6\n";
-            report += "    SDK Package Version: 3.0.6\n";
+            report += "    Version of the API: 3.0.7\n";
+            report += "    SDK Package Version: 3.0.7\n";
 
             return report;
         }
