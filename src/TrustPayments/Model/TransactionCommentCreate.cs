@@ -43,7 +43,7 @@ namespace TrustPayments.Model
         /// <summary>
         /// Gets or Sets Transaction
         /// </summary>
-        [DataMember(Name="transaction", EmitDefaultValue=true)]
+        [DataMember(Name="transaction", EmitDefaultValue=false)]
         public long? Transaction { get; set; }
 
         /// <summary>

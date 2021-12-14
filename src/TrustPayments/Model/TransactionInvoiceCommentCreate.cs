@@ -43,7 +43,7 @@ namespace TrustPayments.Model
         /// <summary>
         /// Gets or Sets TransactionInvoice
         /// </summary>
-        [DataMember(Name="transactionInvoice", EmitDefaultValue=true)]
+        [DataMember(Name="transactionInvoice", EmitDefaultValue=false)]
         public long? TransactionInvoice { get; set; }
 
         /// <summary>
