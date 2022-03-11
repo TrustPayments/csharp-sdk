@@ -45,7 +45,13 @@ namespace TrustPayments.Model
         /// Enum PRODUCT for value: PRODUCT
         /// </summary>
         [EnumMember(Value = "PRODUCT")]
-        PRODUCT
+        PRODUCT,
+        
+        /// <summary>
+        /// Enum TIP for value: TIP
+        /// </summary>
+        [EnumMember(Value = "TIP")]
+        TIP
     }
 
 }

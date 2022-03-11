@@ -132,6 +132,29 @@ namespace TrustPayments.Service
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TriggerFinalBalanceWithHttpInfo (long? spaceId, long? terminalId);
         /// <summary>
+        /// Remotely Trigger Final Balance By Identifier
+        /// </summary>
+        /// <remarks>
+        /// Remotely triggers the final balance receipt on the terminal by terminal identifier.
+        /// </remarks>
+        /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="terminalIdentifier"></param>
+        /// <returns></returns>
+        void TriggerFinalBalanceByIdentifier (long? spaceId, string terminalIdentifier);
+
+        /// <summary>
+        /// Remotely Trigger Final Balance By Identifier
+        /// </summary>
+        /// <remarks>
+        /// Remotely triggers the final balance receipt on the terminal by terminal identifier.
+        /// </remarks>
+        /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="terminalIdentifier"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> TriggerFinalBalanceByIdentifierWithHttpInfo (long? spaceId, string terminalIdentifier);
+        /// <summary>
         /// Unlink Device With Terminal
         /// </summary>
         /// <remarks>
@@ -581,6 +604,76 @@ namespace TrustPayments.Service
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("TriggerFinalBalance", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+        /// <summary>
+        /// Remotely Trigger Final Balance By Identifier Remotely triggers the final balance receipt on the terminal by terminal identifier.
+        /// </summary>
+        /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="terminalIdentifier"></param>
+        /// <returns></returns>
+        public void TriggerFinalBalanceByIdentifier (long? spaceId, string terminalIdentifier)
+        {
+             TriggerFinalBalanceByIdentifierWithHttpInfo(spaceId, terminalIdentifier);
+        }
+
+        /// <summary>
+        /// Remotely Trigger Final Balance By Identifier Remotely triggers the final balance receipt on the terminal by terminal identifier.
+        /// </summary>
+        /// <exception cref="TrustPayments.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="terminalIdentifier"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> TriggerFinalBalanceByIdentifierWithHttpInfo (long? spaceId, string terminalIdentifier)
+        {
+            // verify the required parameter 'spaceId' is set
+            if (spaceId == null)
+                throw new ApiException(400, "Missing required parameter 'spaceId' when calling PaymentTerminalService->TriggerFinalBalanceByIdentifier");
+            // verify the required parameter 'terminalIdentifier' is set
+            if (terminalIdentifier == null)
+                throw new ApiException(400, "Missing required parameter 'terminalIdentifier' when calling PaymentTerminalService->TriggerFinalBalanceByIdentifier");
+
+            var localVarPath = "/payment-terminal/trigger-final-balance-by-identifier";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (spaceId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "spaceId", spaceId)); // query parameter
+            if (terminalIdentifier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "terminalIdentifier", terminalIdentifier)); // query parameter
+
+			
+			this.Configuration.ApiClient.ResetTimeout();
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TriggerFinalBalanceByIdentifier", localVarResponse);
                 if (exception != null) throw exception;
             }
 
