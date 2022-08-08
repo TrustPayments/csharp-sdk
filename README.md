@@ -32,13 +32,13 @@ NOTE: RestSharp versions greater than 106.2.1 have a bug which causes file uploa
 ## Installation
 ```
 # Package Manager
-Install-Package TrustPayments -Version 4.0.4
+Install-Package TrustPayments -Version 4.1.1
 # .NET CLI
-dotnet add package TrustPayments --version 4.0.4
+dotnet add package TrustPayments --version 4.1.1
 # Paket CLI
-paket add TrustPayments --version 4.0.4
+paket add TrustPayments --version 4.1.1
 # PackageReference
-<PackageReference Include="TrustPayments" Version="4.0.4" />
+<PackageReference Include="TrustPayments" Version="4.1.1" />
 ```
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
