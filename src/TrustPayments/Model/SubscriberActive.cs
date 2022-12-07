@@ -21,6 +21,11 @@ namespace TrustPayments.Model
     public partial class SubscriberActive : SubscriberUpdate,  IEquatable<SubscriberActive>
     {
         /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public CreationEntityState? State { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SubscriberActive" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -57,11 +62,6 @@ namespace TrustPayments.Model
 
 
 
-        /// <summary>
-        /// Gets or Sets State
-        /// </summary>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public CreationEntityState State { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

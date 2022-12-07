@@ -32,13 +32,13 @@ NOTE: RestSharp versions greater than [106.2.1, 107) have a bug which causes fil
 ## Installation
 ```
 # Package Manager
-Install-Package TrustPayments -Version 4.3.8
+Install-Package TrustPayments -Version 4.3.11
 # .NET CLI
-dotnet add package TrustPayments --version 4.3.8
+dotnet add package TrustPayments --version 4.3.11
 # Paket CLI
-paket add TrustPayments --version 4.3.8
+paket add TrustPayments --version 4.3.11
 # PackageReference
-<PackageReference Include="TrustPayments" Version="4.3.8" />
+<PackageReference Include="TrustPayments" Version="4.3.11" />
 ```
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:

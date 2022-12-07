@@ -21,6 +21,11 @@ namespace TrustPayments.Model
     public partial class ShopifyTransaction : TransactionAwareEntity,  IEquatable<ShopifyTransaction>
     {
         /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public ShopifyTransactionState? State { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ShopifyTransaction" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -69,11 +74,6 @@ namespace TrustPayments.Model
         [DataMember(Name="plannedPurgeDate", EmitDefaultValue=false)]
         public DateTime? PlannedPurgeDate { get; private set; }
 
-        /// <summary>
-        /// Gets or Sets State
-        /// </summary>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public ShopifyTransactionState State { get; private set; }
 
         /// <summary>
         /// Gets or Sets Transaction
