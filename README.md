@@ -10,12 +10,12 @@ The Trust Payments C# library wraps around the Trust Payments API. This library 
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
-- .NET 4.5 or later
+- .NET 4.6.1 or later
 - Windows Phone 7.1 (Mango)
 
 <a name="dependencies"></a>
 ## Dependencies
-- [RestSharp](https://www.nuget.org/packages/RestSharp) - [106.2.1, 107)
+- [RestSharp](https://www.nuget.org/packages/RestSharp) - 108.0.1
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 13.0.1
 - [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.6.0
 
@@ -26,19 +26,18 @@ Install-Package Newtonsoft.Json
 Install-Package JsonSubTypes
 ```
 
-NOTE: RestSharp versions greater than [106.2.1, 107) have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742)
 
 <a name="installation"></a>
 ## Installation
 ```
 # Package Manager
-Install-Package TrustPayments -Version 4.3.11
+Install-Package TrustPayments -Version 5.0.0
 # .NET CLI
-dotnet add package TrustPayments --version 4.3.11
+dotnet add package TrustPayments --version 5.0.0
 # Paket CLI
-paket add TrustPayments --version 4.3.11
+paket add TrustPayments --version 5.0.0
 # PackageReference
-<PackageReference Include="TrustPayments" Version="4.3.11" />
+<PackageReference Include="TrustPayments" Version="5.0.0" />
 ```
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
