@@ -19,7 +19,7 @@ namespace TrustPayments.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.0.0";
+        public const string Version = "5.0.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -90,7 +90,7 @@ namespace TrustPayments.Client
             }
             _authenticationKey =  authenticationKey;
             _applicationUserID = applicationUserID;
-            UserAgent = "TrustPayments/5.0.0/csharp";
+            UserAgent = "TrustPayments/5.0.1/csharp";
             BasePath = "https://ep.trustpayments.com:443/api";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -338,8 +338,8 @@ namespace TrustPayments.Client
             String report = "C# SDK (TrustPayments) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 5.0.0\n";
-            report += "    SDK Package Version: 5.0.0\n";
+            report += "    Version of the API: 5.0.1\n";
+            report += "    SDK Package Version: 5.0.1\n";
 
             return report;
         }

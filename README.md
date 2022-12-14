@@ -31,13 +31,13 @@ Install-Package JsonSubTypes
 ## Installation
 ```
 # Package Manager
-Install-Package TrustPayments -Version 5.0.0
+Install-Package TrustPayments -Version 5.0.1
 # .NET CLI
-dotnet add package TrustPayments --version 5.0.0
+dotnet add package TrustPayments --version 5.0.1
 # Paket CLI
-paket add TrustPayments --version 5.0.0
+paket add TrustPayments --version 5.0.1
 # PackageReference
-<PackageReference Include="TrustPayments" Version="5.0.0" />
+<PackageReference Include="TrustPayments" Version="5.0.1" />
 ```
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
