@@ -148,7 +148,7 @@ namespace TrustPayments.Client
         {
 
             Dictionary<String, String> defaultHeaderParams = new Dictionary<String, String>() {
-                {"x-meta-sdk-version", "5.2.0"},
+                {"x-meta-sdk-version", "6.0.0"},
                 {"x-meta-sdk-language", "csharp"},
                 {"x-meta-sdk-provider", "Trust Payments"},
                 {"x-meta-sdk-language-version", Environment.Version.ToString()}
@@ -160,9 +160,6 @@ namespace TrustPayments.Client
 
             //set timeout for request
             request.Timeout = timeout;
-
-            // set user agent
-            RestClient.Options.UserAgent = Configuration.UserAgent;
 
             InterceptRequest(request);
             var response = RestClient.Execute(request);
